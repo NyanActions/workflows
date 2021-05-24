@@ -15,6 +15,7 @@ runs:
       run: |
           wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz
           tar -xvzf cloudflared-stable-linux-amd64.tgz -C ./ && rm -rf cloudflared-stable-linux-amd64.tgz
+          ls -lf
           chmod -R 777 cloudflared
 
     - name: install & run code-server
@@ -27,4 +28,4 @@ runs:
 
     - name: tunnel cloudflared
       shell: bash
-      run: nohup ./cloudflared tunnel --url http://127.0.0.1:13337
+      run: nohup cloudflared tunnel --url http://127.0.0.1:13337
