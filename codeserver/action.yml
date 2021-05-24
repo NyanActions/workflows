@@ -4,7 +4,6 @@ description: "runs code-server on workflows"
 inputs:
   password:
     description: "password"
-    default: ${{ secrets.CODE_PASSWORD }}
     required: true
 
 
@@ -17,6 +16,7 @@ runs:
           wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz
           tar -xvzf cloudflared-stable-linux-amd64.tgz -C ./ && rm -rf cloudflared-stable-linux-amd64.tgz
           chmod -R 777 cloudflared
+
     - name: install & run code-server
       shell: bash
       run: |
