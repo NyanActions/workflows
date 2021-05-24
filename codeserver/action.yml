@@ -15,7 +15,7 @@ runs:
       run: |
           wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz
           clear
-          tar -xvzf cloudflared-stable-linux-amd64.tgz && rm -rf cloudflared-stable-linux-amd64.tgz
+          tar -xvzf cloudflared-stable-linux-amd64.tgz -C ./ && rm -rf cloudflared-stable-linux-amd64.tgz
           chmod -R 777 cloudflared
           ./cloudflared --version
 
