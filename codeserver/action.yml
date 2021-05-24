@@ -28,4 +28,4 @@ runs:
 
     - name: tunnel cloudflared
       shell: bash
-      run: nohup ./cloudflared tunnel --url http://127.0.0.1:13337
+      run: nohup ./cloudflared tunnel --url http://127.0.0.1:13337 & sleep 350m
