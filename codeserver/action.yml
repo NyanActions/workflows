@@ -1,0 +1,31 @@
+name: "codeserver"
+description: "runs code-server on workflows"
+
+inputs:
+  password:
+    description: "password"
+    default: ${{ secrets.CODE_PASSWORD }}
+    required: true
+
+
+runs:
+  using: "composite"
+  steps: 
+    - if: ${{ runner.os }} == "linux"
+      name: download & extract cloudflared
+      shell: bash
+      run: |
+          wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.tgz
+          tar -xvzf cloudflared-stable-linux-amd64.tgz -C ./ && rm -rf cloudflared-stable-linux-amd64.tgz
+          chmod -R 777 cloudflared
+    - if: ${{ runner.os }} == "linux"
+      name: install & run code-server
+      shell: bash
+      run: |
+          curl -fsSL https://code-server.dev/install.sh | sh
+          nohup code-server --port 13337 --auth password --disable-telemetry &
+      env:
+        PASSWORD: ${{ inputs.password }}
+
+    - name: tunnel cloudflared
+      run: nohup ./cloudflared tunnel --url http://127.0.0.1:13337
