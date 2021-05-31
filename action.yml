@@ -13,9 +13,9 @@ runs:
       run: |
           wget -q https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
-          cloudflared update
+          sudo cloudflared update
           rm -rf cloudflared-stable-linux-amd64.deb
 
     - name: run cloudflared
       shell: bash
-      run: cloudflared ${{ inputs.args }}
+      run: sudo cloudflared ${{ inputs.args }}
