@@ -17,7 +17,6 @@ runs:
           cloudflared --version
           rm -rf cloudflared-stable-linux-amd64.deb
 
-    - if: ${{ inputs.args }}
-      name: run cloudflared
+    - name: run cloudflared
       shell: bash
       run: cloudflared ${{ inputs.args }}
