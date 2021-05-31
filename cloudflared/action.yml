@@ -15,9 +15,11 @@ runs:
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
           sudo cloudflared update &
           rm -rf cloudflared-stable-linux-amd64.deb
-          echo "/_____cloudflared install complete!_____/"
+          echo "/ cloudflared install complete! /"
           
 
     - name: run cloudflared
       shell: bash
-      run: sudo cloudflared ${{ inputs.args }}
+      run: |
+          echo "\ run cloudflared! \"
+          sudo cloudflared ${{ inputs.args }}
