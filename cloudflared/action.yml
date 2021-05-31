@@ -13,7 +13,7 @@ runs:
       run: |
           wget -q https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
-          sudo cloudflared update
+          sudo cloudflared update &
           rm -rf cloudflared-stable-linux-amd64.deb
 
     - name: run cloudflared
