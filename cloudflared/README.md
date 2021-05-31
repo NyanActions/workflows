@@ -1,5 +1,7 @@
 Only works on `ubuntu`
 
+cloudflared updates automatically
+
 ## Example
 ```yaml
 name: cloudflared 
@@ -11,5 +13,6 @@ jobs:
     steps:
       - uses: kspactions/workflows/cloudflared@main
         with:
+           # sudo cloudflared update
           args: update
 ```
