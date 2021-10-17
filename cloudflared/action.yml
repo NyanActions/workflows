@@ -12,9 +12,9 @@ runs:
       shell: bash
       run: |
           wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-          sudo dpkg -i cloudflared-stable-linux-amd64.deb
+          sudo dpkg -i cloudflared-linux-amd64.deb
           sudo cloudflared update &
-          rm -rf cloudflared-stable-linux-amd64.deb
+          rm -rf cloudflared-linux-amd64.deb
           echo "/ cloudflared install complete! /"
           
 
