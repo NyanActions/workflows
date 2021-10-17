@@ -11,7 +11,7 @@ runs:
     - name: download cloudflared
       shell: bash
       run: |
-          wget -q https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+          wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared-stable-linux-amd64.deb
           sudo cloudflared update &
           rm -rf cloudflared-stable-linux-amd64.deb
